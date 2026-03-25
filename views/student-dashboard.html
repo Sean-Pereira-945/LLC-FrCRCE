@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Student Dashboard | LLC@FRCRCE</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-container":"#828eb1","surface-container-lowest":"#ffffff",
+            "primary-container":"#1a2744","on-tertiary-container":"#d07900",
+            "primary-fixed-dim":"#b9c6eb","secondary-container":"#d6e3fa",
+            "surface-container":"#edeef1","on-surface-variant":"#45464d",
+            "error-container":"#ffdad6","background":"#f8f9fc",
+            "surface-variant":"#e1e2e5","surface-container-highest":"#e1e2e5",
+            "tertiary":"#210e00","on-surface":"#191c1e",
+            "on-secondary-container":"#586578","on-error-container":"#93000a",
+            "inverse-surface":"#2e3133","inverse-primary":"#b9c6eb",
+            "primary-fixed":"#d9e2ff","on-secondary":"#ffffff",
+            "on-error":"#ffffff","surface-container-low":"#f2f3f6",
+            "secondary-fixed-dim":"#bac7dd","secondary":"#525f72",
+            "on-secondary-fixed-variant":"#3b485a",
+            "surface":"#f8f9fc","outline-variant":"#c5c6ce",
+            "outline":"#75777e","surface-container-high":"#e7e8eb",
+            "surface-dim":"#d9dadd","on-primary-fixed":"#0d1b37",
+            "on-tertiary-fixed-variant":"#6a3b00","tertiary-fixed":"#ffdcbf",
+            "on-tertiary-fixed":"#2d1600","secondary-fixed":"#d6e3fa",
+            "surface-bright":"#f8f9fc","on-secondary-fixed":"#0f1c2c",
+            "primary":"#04122e","on-primary":"#ffffff",
+            "inverse-on-surface":"#f0f1f4","tertiary-container":"#3e2000",
+            "error":"#ba1a1a","tertiary-fixed-dim":"#ffb873",
+            "surface-tint":"#515e7e","on-primary-fixed-variant":"#3a4665",
+            "on-background":"#191c1e","on-tertiary":"#ffffff"
+          },
+          fontFamily: {
+            "headline":["Instrument Serif","serif"],
+            "body":["Geist","sans-serif"],
+            "label":["IBM Plex Mono","monospace"]
+          },
+          borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body class="bg-surface text-on-background font-body selection:bg-tertiary-fixed selection:text-on-tertiary-fixed" data-page="student-dashboard">
+
+  <div class="grid grid-cols-1 md:grid-cols-[240px_1fr] min-h-screen">
+    <!-- Sidebar -->
+    <aside class="sidebar-mobile fixed md:sticky inset-y-0 left-0 w-[240px] bg-primary text-white p-6 flex flex-col gap-6 md:transform-none z-[501]" id="sidebar">
+      <div class="space-y-3">
+        <div class="w-12 h-12 rounded-full bg-tertiary-fixed text-primary font-bold flex items-center justify-center text-lg" id="studentAvatar">S</div>
+        <h2 class="font-headline text-xl italic" id="studentName">Student</h2>
+        <span class="inline-block font-label text-[10px] uppercase tracking-widest px-3 py-1 bg-tertiary-fixed/20 text-tertiary-fixed rounded-full" id="studentRoleBadge">Student</span>
+      </div>
+
+      <nav class="flex-1 space-y-1">
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/10 text-white font-medium text-sm border-l-2 border-tertiary-fixed" href="/student-dashboard">
+          <span class="material-symbols-outlined text-lg">dashboard</span> Dashboard
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/70 hover:bg-white/5 text-sm transition-colors" href="/search">
+          <span class="material-symbols-outlined text-lg">search</span> Search Courses
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/70 hover:bg-white/5 text-sm transition-colors" href="/about">
+          <span class="material-symbols-outlined text-lg">info</span> About
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/70 hover:bg-white/5 text-sm transition-colors" href="/contact">
+          <span class="material-symbols-outlined text-lg">mail</span> Contact
+        </a>
+      </nav>
+
+      <div class="space-y-3">
+        <p class="text-on-surface-variant text-xs">Keep learning, keep building.</p>
+        <button class="w-full h-10 border border-white/20 text-white rounded-lg text-sm font-medium hover:bg-white/10 transition-colors" id="logoutBtn">Logout</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main-area md:ml-0 p-6 md:p-8">
+      <!-- Top Bar -->
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+        <div>
+          <h1 class="font-headline text-3xl md:text-4xl text-primary italic">Course Activity</h1>
+          <p class="text-secondary text-sm mt-1">Your weekly learning cockpit</p>
+        </div>
+        <div class="flex items-center gap-3">
+
+      <a href="/search" class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-medium text-sm hover:bg-primary-container transition-all active:scale-95 no-underline flex items-center gap-2">
+            <span class="material-symbols-outlined text-lg">explore</span> Discover
+          </a>
+          <button class="md:hidden border border-outline-variant text-secondary px-4 py-2.5 rounded-lg font-medium text-sm hover:border-primary hover:text-primary transition-all" id="sidebarToggle">
+            <span class="material-symbols-outlined text-lg">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Summary Cards -->
+      <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+        <article class="bg-surface-container-lowest rounded-2xl editorial-shadow p-6">
+          <p class="font-label text-[11px] uppercase tracking-widest text-secondary">Active Courses</p>
+          <h2 class="font-headline text-4xl text-primary italic mt-2" id="enrolledCount">0</h2>
+        </article>
+        <article class="bg-surface-container-lowest rounded-2xl editorial-shadow p-6">
+          <p class="font-label text-[11px] uppercase tracking-widest text-secondary">Open In Enrolled</p>
+          <h2 class="font-headline text-4xl text-on-tertiary-container italic mt-2" id="upcomingCount">0</h2>
+        </article>
+        <article class="bg-surface-container-lowest rounded-2xl editorial-shadow p-6">
+          <p class="font-label text-[11px] uppercase tracking-widest text-secondary">Open Seats Total</p>
+          <h2 class="font-headline text-4xl text-on-tertiary-container italic mt-2" id="openSlots">0</h2>
+        </article>
+      </section>
+
+      <!-- My Courses -->
+      <section class="bg-surface-container-lowest rounded-2xl editorial-shadow p-6 mb-8">
+        <h2 class="font-headline text-2xl text-primary italic mb-4">My Learning</h2>
+        <div class="course-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="myCourses"></div>
+      </section>
+
+      <!-- Discover -->
+      <section class="bg-surface-container-lowest rounded-2xl editorial-shadow p-6">
+        <h2 class="font-headline text-2xl text-primary italic mb-4">Discover</h2>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <button class="category-filter px-4 py-2 rounded-full border border-outline-variant text-sm font-medium text-secondary hover:border-primary transition-all active" data-category="all">All</button>
+          <button class="category-filter px-4 py-2 rounded-full border border-outline-variant text-sm font-medium text-secondary hover:border-primary transition-all" data-category="Technical">Technical</button>
+          <button class="category-filter px-4 py-2 rounded-full border border-outline-variant text-sm font-medium text-secondary hover:border-primary transition-all" data-category="Non-technical">Non-technical</button>
+          <button class="category-filter px-4 py-2 rounded-full border border-outline-variant text-sm font-medium text-secondary hover:border-primary transition-all" data-category="Self-Development">Self-Development</button>
+          <button class="category-filter px-4 py-2 rounded-full border border-outline-variant text-sm font-medium text-secondary hover:border-primary transition-all" data-category="Extra-curricular">Extra-curricular</button>
+        </div>
+        <div class="course-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="discoverCourses"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Syllabus Modal -->
+  <div class="modal-overlay" id="syllabusModal" aria-hidden="true">
+    <div class="bg-surface-container-lowest rounded-2xl editorial-shadow w-full max-w-xl max-h-[90vh] overflow-auto" role="dialog" aria-modal="true" aria-labelledby="syllabusTitle">
+      <div class="flex items-center justify-between p-6 border-b border-surface-variant">
+        <h3 id="syllabusTitle" class="font-headline text-xl text-primary italic">Course Syllabus</h3>
+        <button class="text-secondary hover:text-primary transition-colors" type="button" data-close-modal="syllabusModal" aria-label="Close">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="p-6">
+        <div class="flex gap-2 flex-wrap mb-4">
+          <button class="px-3 py-1.5 border border-outline-variant rounded-lg text-sm text-secondary hover:border-primary transition-all" id="syllabusZoomOut" type="button">
+            <span class="material-symbols-outlined text-lg">zoom_out</span>
+          </button>
+          <button class="px-3 py-1.5 border border-outline-variant rounded-lg text-sm text-secondary hover:border-primary transition-all" id="syllabusZoomIn" type="button">
+            <span class="material-symbols-outlined text-lg">zoom_in</span>
+          </button>
+          <button class="px-3 py-1.5 text-sm text-secondary hover:text-primary transition-colors" id="syllabusReset" type="button">Reset</button>
+          <a class="px-4 py-1.5 bg-primary text-on-primary rounded-lg text-sm font-medium hover:bg-primary-container transition-all ml-auto no-underline flex items-center gap-1" id="syllabusDownload" href="#" download>
+            <span class="material-symbols-outlined text-lg">download</span> Download
+          </a>
+        </div>
+        <p id="syllabusStatus" class="text-secondary text-sm mb-3" style="display:none;"></p>
+        <div class="syllabus-stage">
+          <img id="syllabusImage" alt="Course syllabus" style="width:100%;height:auto;border-radius:8px;transform-origin:top center;transition:transform 120ms ease;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enroll Confirmation Modal -->
+  <div class="modal-overlay" id="enrollConfirmModal" aria-hidden="true">
+    <div class="bg-surface-container-lowest rounded-2xl editorial-shadow w-full max-w-md" role="dialog" aria-modal="true" aria-labelledby="enrollConfirmTitle">
+      <div class="flex items-center justify-between p-6 border-b border-surface-variant">
+        <h3 id="enrollConfirmTitle" class="font-headline text-xl text-primary italic">Confirm Enrollment</h3>
+        <button class="text-secondary hover:text-primary transition-colors" type="button" data-close-modal="enrollConfirmModal" aria-label="Close">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="p-6">
+        <p id="enrollConfirmText" class="text-secondary">You are about to enroll in this course.</p>
+      </div>
+      <div class="flex justify-end gap-3 p-6 border-t border-surface-variant">
+        <button class="px-5 py-2.5 border border-outline-variant text-secondary rounded-lg text-sm font-medium hover:border-primary transition-all" type="button" data-close-modal="enrollConfirmModal">Cancel</button>
+        <button class="px-6 py-2.5 bg-primary text-on-primary rounded-lg text-sm font-medium hover:bg-primary-container transition-all active:scale-95" type="button" id="enrollConfirmButton">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/script.js"></script>
+
+  </body>
+</html>

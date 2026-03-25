@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "name": "learning-platform-server",
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/uploads/(.*)",
+      "dest": "https://res.cloudinary.com/djwygkmsh/image/upload/v1/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
+}

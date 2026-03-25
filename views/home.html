@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>LLC@FRCRCE | Learning & Leadership Center</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-container":"#828eb1","surface-container-lowest":"#ffffff",
+            "primary-container":"#1a2744","on-tertiary-container":"#d07900",
+            "primary-fixed-dim":"#b9c6eb","secondary-container":"#d6e3fa",
+            "surface-container":"#edeef1","on-surface-variant":"#45464d",
+            "error-container":"#ffdad6","background":"#f8f9fc",
+            "surface-variant":"#e1e2e5","surface-container-highest":"#e1e2e5",
+            "tertiary":"#210e00","on-surface":"#191c1e",
+            "on-secondary-container":"#586578","on-error-container":"#93000a",
+            "inverse-surface":"#2e3133","inverse-primary":"#b9c6eb",
+            "primary-fixed":"#d9e2ff","on-secondary":"#ffffff",
+            "on-error":"#ffffff","surface-container-low":"#f2f3f6",
+            "secondary-fixed-dim":"#bac7dd","secondary":"#525f72",
+            "on-secondary-fixed-variant":"#3b485a",
+            "surface":"#f8f9fc","outline-variant":"#c5c6ce",
+            "outline":"#75777e","surface-container-high":"#e7e8eb",
+            "surface-dim":"#d9dadd","on-primary-fixed":"#0d1b37",
+            "on-tertiary-fixed-variant":"#6a3b00","tertiary-fixed":"#ffdcbf",
+            "on-tertiary-fixed":"#2d1600","secondary-fixed":"#d6e3fa",
+            "surface-bright":"#f8f9fc","on-secondary-fixed":"#0f1c2c",
+            "primary":"#04122e","on-primary":"#ffffff",
+            "inverse-on-surface":"#f0f1f4","tertiary-container":"#3e2000",
+            "error":"#ba1a1a","tertiary-fixed-dim":"#ffb873",
+            "surface-tint":"#515e7e","on-primary-fixed-variant":"#3a4665",
+            "on-background":"#191c1e","on-tertiary":"#ffffff"
+          },
+          fontFamily: {
+            "headline":["Instrument Serif","serif"],
+            "body":["Geist","sans-serif"],
+            "label":["IBM Plex Mono","monospace"]
+          },
+          borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="/css/theme.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-surface text-on-background font-body selection:bg-tertiary-fixed selection:text-on-tertiary-fixed" data-page="home">
+
+    <!-- TopNavBar -->
+  <nav class="navbar fixed top-0 w-full h-[64px] z-50 bg-surface-container-lowest/80 backdrop-blur-md flex justify-between items-center px-8 border-b border-surface-variant" id="mainNav">
+    <a href="/" class="font-headline italic text-2xl text-primary no-underline">LLC@FRCRCE</a>
+
+    <button class="md:hidden flex flex-col gap-1.5 p-2" id="navToggle" aria-label="Toggle menu">
+      <span class="block w-5 h-0.5 bg-primary rounded-full"></span>
+      <span class="block w-5 h-0.5 bg-primary rounded-full"></span>
+      <span class="block w-5 h-0.5 bg-primary rounded-full"></span>
+    </button>
+
+    <div class="hidden md:flex items-center gap-8" id="navLinks">
+      <a class="nav-link font-medium transition-colors duration-300" href="/search">Programs</a>
+      <a class="nav-link font-medium transition-colors duration-300" href="/about">About</a>
+      <a class="nav-link font-medium transition-colors duration-300" href="/contact">Contact</a>
+    </div>
+
+    <div class="hidden md:flex items-center gap-6">
+
+      <a href="/login" class="text-secondary font-medium hover:text-primary transition-colors duration-300">Login</a>
+      <a href="/registration" class="bg-primary text-on-primary px-5 py-2 rounded-lg font-medium hover:bg-tertiary-fixed hover:text-on-tertiary-fixed transition-all active:scale-95 no-underline">Join Now</a>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="nav-links-mobile md:hidden" id="navLinksMobile">
+
+      <a class="nav-link font-medium py-2" href="/search">Programs</a>
+      <a class="nav-link font-medium py-2" href="/about">About</a>
+      <a class="nav-link font-medium py-2" href="/contact">Contact</a>
+      <a class="text-secondary font-medium py-2" href="/login">Login</a>
+      <a href="/registration" class="bg-primary text-on-primary px-6 py-2 rounded-lg font-medium text-center mt-2 no-underline">Join Now</a>
+    </div>
+  </nav>
+
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="max-w-screen-2xl mx-auto px-8 py-20 md:py-32 grid grid-cols-1 md:grid-cols-[55%_45%] gap-16 items-center">
+      <div class="space-y-8" data-aos="fade-right" data-aos-duration="1000">
+        <span class="inline-block font-label text-xs uppercase tracking-[0.2em] px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded-full">
+          Learning &amp; Leadership Center
+        </span>
+        <h1 class="font-headline text-5xl md:text-7xl text-primary leading-[1.1] italic">
+          Build skills that go beyond the classroom
+        </h1>
+        <p class="text-secondary text-lg max-w-xl leading-relaxed">
+          Bridging the gap between academic theory and institutional excellence through rigorous professional development and leadership mentoring.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a href="/search" class="bg-primary text-on-primary px-8 py-4 rounded-lg font-medium flex items-center gap-2 hover:bg-primary-container transition-all active:scale-95 no-underline">
+            Browse Courses
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+          <a href="/registration" class="border border-outline-variant text-primary px-8 py-4 rounded-lg font-medium hover:bg-surface-container-low transition-all active:scale-95 no-underline">
+            Join as Teacher
+          </a>
+        </div>
+      </div>
+
+      <!-- High-End UI Mockup Illustration -->
+      <div class="relative aspect-square flex items-center justify-center hidden md:flex perspective-1000" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+        <style>
+          @keyframes float {
+            0% { transform: translateY(0px) translateZ(0); }
+            50% { transform: translateY(-12px) translateZ(0); }
+            100% { transform: translateY(0px) translateZ(0); }
+          }
+          @keyframes float-delayed {
+            0% { transform: translateY(0px) translateZ(0); }
+            50% { transform: translateY(8px) translateZ(0); }
+            100% { transform: translateY(0px) translateZ(0); }
+          }
+        </style>
+        
+        <!-- Interactive Background Setup -->
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-container/10 to-tertiary-fixed/30 rounded-[2.5rem] -rotate-3 blur-2xl"></div>
+        <div class="absolute inset-x-8 inset-y-8 bg-primary/5 rounded-[2.5rem] border border-surface-variant/50 border-r-0 border-b-0 backdrop-blur-3xl rotate-3 shadow-inner"></div>
+
+        <!-- Main Dashboard Card -->
+        <div class="relative z-10 w-[80%] h-[85%] bg-surface/90 backdrop-blur-2xl border border-white/60 rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(4,18,46,0.15)] flex flex-col overflow-hidden group transition-all duration-700 hover:shadow-[0_45px_80px_-20px_rgba(4,18,46,0.2)] hover:-translate-y-1">
+          <!-- Mockup Header -->
+          <div class="h-16 border-b border-surface-variant/40 flex items-center px-6 gap-2 bg-white/70">
+            <div class="w-3.5 h-3.5 rounded-full bg-red-400"></div>
+            <div class="w-3.5 h-3.5 rounded-full bg-yellow-400"></div>
+            <div class="w-3.5 h-3.5 rounded-full bg-green-400"></div>
+            <div class="ml-auto flex items-center gap-3">
+              <div class="w-20 h-2 rounded-full bg-surface-variant"></div>
+              <div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-[10px] font-bold text-primary">LLC</div>
+            </div>
+          </div>
+          <!-- Mockup Content -->
+          <div class="flex-1 p-8 flex flex-col gap-6 w-full">
+            <div class="flex items-center gap-5">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center shadow-lg text-white">
+                <span class="material-symbols-outlined text-[32px]">menu_book</span>
+              </div>
+              <div class="flex flex-col flex-1 gap-2.5">
+                <div class="h-4 w-[65%] bg-surface-variant rounded-md"></div>
+                <div class="h-2 w-[40%] bg-surface-variant/60 rounded-md"></div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-5 mt-2">
+              <div class="h-[120px] bg-gradient-to-br from-tertiary-container to-tertiary rounded-3xl p-5 flex flex-col justify-between shadow-md relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
+                 <div class="absolute -right-6 -top-6 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
+                 <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white text-xs"><span class="material-symbols-outlined text-[20px]">groups</span></div>
+                 <div class="h-2.5 w-[85%] bg-white/30 rounded-full"></div>
+              </div>
+              <div class="h-[120px] bg-surface-container-lowest border border-surface-variant rounded-3xl p-5 flex flex-col justify-between shadow-sm group-hover:scale-[1.02] transition-transform duration-500">
+                 <div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary text-xs"><span class="material-symbols-outlined text-[20px]">monitoring</span></div>
+                 <div class="h-2.5 w-[75%] bg-primary/20 rounded-full"></div>
+              </div>
+            </div>
+            <div class="mt-auto flex items-center gap-4">
+              <div class="h-12 flex-1 bg-surface-variant/30 text-primary rounded-2xl border border-surface-variant/50 flex items-center justify-center text-xs font-bold tracking-widest uppercase">
+                View Path
+              </div>
+              <div class="w-12 h-12 bg-primary text-white rounded-2xl flex items-center justify-center shadow-lg transform active:scale-95 transition-all">
+                <span class="material-symbols-outlined pl-1">play_arrow</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Floating Element 1: Progression Stats -->
+        <div class="absolute z-20 -right-6 top-16 w-64 bg-surface-container-lowest/80 backdrop-blur-2xl border border-white rounded-[1.5rem] shadow-[0_20px_40px_-15px_rgba(4,18,46,0.15)] p-5 transform transition-transform" style="animation: float 6s ease-in-out infinite;">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-full bg-tertiary-fixed text-primary flex items-center justify-center shadow-inner">
+               <span class="material-symbols-outlined text-[20px]">rocket_launch</span>
+            </div>
+            <div class="flex-1">
+              <div class="h-2.5 w-24 bg-primary/20 rounded-full mb-2"></div>
+              <div class="h-2 w-16 bg-secondary/20 rounded-full"></div>
+            </div>
+          </div>
+          <div class="w-full bg-surface-variant h-2 rounded-full overflow-hidden">
+            <div class="w-[85%] bg-tertiary h-full rounded-full"></div>
+          </div>
+        </div>
+        
+        <!-- Floating Element 2: Certified Badge -->
+        <div id="certifiedBadge" class="absolute z-30 -left-10 bottom-24 bg-primary text-white backdrop-blur-3xl border border-white/20 rounded-2xl shadow-2xl p-4 flex items-center gap-4 transform transition-transform border-t-white/40 border-l-white/40 cursor-pointer hover:scale-105" style="animation: float-delayed 7s ease-in-out infinite;">
+          <div class="bg-gradient-to-b from-tertiary-fixed to-tertiary-fixed-dim text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg relative shrink-0">
+            <span class="material-symbols-outlined relative z-10 text-[22px]">workspace_premium</span>
+            <div class="absolute inset-0 rounded-full border border-white/50 mix-blend-overlay"></div>
+          </div>
+          <div>
+            <div class="text-[14px] font-semibold tracking-wide text-white">Course Certified</div>
+            <div class="text-[11px] text-white/60 font-medium">100% Completed</div>
+          </div>
+        </div>
+
+        <!-- Popper Tooltip for Badge -->
+        <div id="badgeTooltip" role="tooltip" class="absolute z-50 bg-inverse-surface text-inverse-on-surface px-4 py-2 rounded-xl text-sm font-medium opacity-0 transition-opacity duration-300 pointer-events-none shadow-xl border border-white/10">
+          Recognized by University Grants Commission
+          <div id="badgeArrow" data-popper-arrow class="absolute w-2.5 h-2.5 bg-inverse-surface border-l border-t border-white/10 rotate-45"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="bg-primary py-16">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+          <div class="space-y-2 border-l border-white/10 pl-8" data-aos="fade-up" data-aos-delay="0">
+            <p class="font-headline text-5xl text-tertiary-fixed italic">40+</p>
+            <p class="font-label text-white/60 text-xs uppercase tracking-widest">Active Courses</p>
+          </div>
+          <div class="space-y-2 border-l border-white/10 pl-8" data-aos="fade-up" data-aos-delay="100">
+            <p class="font-headline text-5xl text-tertiary-fixed italic">1200+</p>
+            <p class="font-label text-white/60 text-xs uppercase tracking-widest">Global Students</p>
+          </div>
+          <div class="space-y-2 border-l border-white/10 pl-8" data-aos="fade-up" data-aos-delay="200">
+            <p class="font-headline text-5xl text-tertiary-fixed italic">25+</p>
+            <p class="font-label text-white/60 text-xs uppercase tracking-widest">Expert Faculty</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-surface-container-low py-32">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div class="max-w-2xl">
+            <span class="font-label text-xs uppercase text-secondary mb-4 block">Institutional Framework</span>
+            <h2 class="font-headline text-5xl text-primary italic">Engineered for Transformation</h2>
+          </div>
+          <p class="text-secondary max-w-sm mb-2">Our methodology combines traditional pedagogy with modern industrial workflows.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-surface-container-lowest p-10 rounded-2xl editorial-shadow hover:-translate-y-2 transition-transform duration-500" data-aos="fade-up" data-aos-delay="0">
+            <div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center mb-8">
+              <span class="material-symbols-outlined text-tertiary-fixed">psychology</span>
+            </div>
+            <h3 class="font-headline text-2xl text-primary mb-4 italic">Student Empowerment</h3>
+            <p class="text-secondary leading-relaxed">Fostering autonomy through project-based learning and peer-led research initiatives that build true confidence.</p>
+          </div>
+          <div class="bg-surface-container-lowest p-10 rounded-2xl editorial-shadow hover:-translate-y-2 transition-transform duration-500" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center mb-8">
+              <span class="material-symbols-outlined text-tertiary-fixed">verified_user</span>
+            </div>
+            <h3 class="font-headline text-2xl text-primary mb-4 italic">Expert Mentorship</h3>
+            <p class="text-secondary leading-relaxed">Direct access to industry veterans and academic scholars who guide your journey with personalized insights.</p>
+          </div>
+          <div class="bg-surface-container-lowest p-10 rounded-2xl editorial-shadow hover:-translate-y-2 transition-transform duration-500" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center mb-8">
+              <span class="material-symbols-outlined text-tertiary-fixed">military_tech</span>
+            </div>
+            <h3 class="font-headline text-2xl text-primary mb-4 italic">Leadership Growth</h3>
+            <p class="text-secondary leading-relaxed">Developing the core soft skills and emotional intelligence required to lead high-performance teams in a global market.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Categories -->
+    <section class="py-32">
+      <div class="max-w-screen-2xl mx-auto px-8">
+        <h2 class="font-headline text-4xl text-primary italic mb-12">Academic Pillars</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <a class="category-link group relative aspect-[4/5] bg-primary overflow-hidden rounded-2xl" href="#" data-category="Technical" data-aos="zoom-in" data-aos-delay="0">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent z-10"></div>
+            <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60" alt="Technical courses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRH3p21c84fiHgVXQpGvIsG5QcuMPQ5lFqIWAgBq1kKDAeMcPe1f81wv-Lk7T-VAApuF8Vfj-0x3NmhskwYJHgGf4De_ph3PNhYts9aiXMZJwUT2r2UTpy0QfR4CP7B7EKiKqpleUmGU0KRoiSr7iLKcaSlHCR7ucJL1Gd_yRH2A4gXGiVjtgveK7RTT9qjUrybTd7UOOlSo2cpdoOHL2i0DewjZXGRTPnlBkyUgrbveHa66T4qzLHmWrpfqizBGulR5L0_1Evh4g"/>
+            <div class="absolute bottom-0 p-8 z-20">
+              <span class="font-label text-[10px] uppercase tracking-widest text-tertiary-fixed">Pillar 01</span>
+              <h4 class="font-headline text-2xl text-white italic mt-2">Technical</h4>
+            </div>
+          </a>
+          <a class="category-link group relative aspect-[4/5] bg-primary overflow-hidden rounded-2xl" href="#" data-category="Non-technical" data-aos="zoom-in" data-aos-delay="100">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent z-10"></div>
+            <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60" alt="Non-technical courses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMOHcWdfRpTaX4OxsBlWhXTN7LBsdOsusv3T2f8Fyhi8fFqc9ynHZvvGXByb6aPps-MxsWlOpi2aIrsD4hfVQTXkQGLGww6Si3Vh31F0X960DDG512RIV2b14f31le6wCUevYZYGZ9gDX-VfMS0byJbT0Wi_5az3qqMIlI_CfJ0vM1JRTdelymD-1HlMAfGK0K1hTE3dOUtCzneTSj2tfwYKYRO2JeXW9DIXBf0VXeeJ13jOAwzi1mU41wfcxpQbFrud5SeeBCNSg"/>
+            <div class="absolute bottom-0 p-8 z-20">
+              <span class="font-label text-[10px] uppercase tracking-widest text-tertiary-fixed">Pillar 02</span>
+              <h4 class="font-headline text-2xl text-white italic mt-2">Non-technical</h4>
+            </div>
+          </a>
+          <a class="category-link group relative aspect-[4/5] bg-primary overflow-hidden rounded-2xl" href="#" data-category="Self-Development" data-aos="zoom-in" data-aos-delay="200">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent z-10"></div>
+            <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60" alt="Self-Development courses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7gENgxKWjiamsUu-_SdyO-eF5eOwqX6ywxsZHGGC-yl-vRw6OqPF0BDcGiyH_XPGvRJ6kYU87XquKuuqS3gB3-a3BdsWdJ7OVrCdaIXkNpdiX-vz8u361laFTXJlZu7m5wveK3l0pZ1xcI5Lrq73MKj5RWBRhUSFC4jHGCAq1ncLmYtO16qQ2D-Ayk_XLk9pquShoE0DvQ4BGIIcBlAu6RflBt8TpDOid6SdVYw4rbaAJC2oI_yfWidncBiZPklnrdz9vXHXXK6M"/>
+            <div class="absolute bottom-0 p-8 z-20">
+              <span class="font-label text-[10px] uppercase tracking-widest text-tertiary-fixed">Pillar 03</span>
+              <h4 class="font-headline text-2xl text-white italic mt-2">Self-Development</h4>
+            </div>
+          </a>
+          <a class="category-link group relative aspect-[4/5] bg-primary overflow-hidden rounded-2xl" href="#" data-category="Extra-curricular" data-aos="zoom-in" data-aos-delay="300">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent z-10"></div>
+            <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60" alt="Extra-curricular activities" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIw2AfejtMHprXQyRBIPT1JGqmd9bcFzq0EnVsxem1LVtYHRGyC-ujQXjnkwJ7sdNpboflBI5W8T2ROMzNw409152dTCrAHszKolJO0hzu7-lFOLBq3PRE8X1nTAMaaKC38FXbZn8QZASECxOL4LXWgZx3qYPMvJlSPB6ZStmkDePE6C8EVZqc0gXm1LLLjhdOOUlLmuvCGp2frng-oUoSQ6xhZpHWwrCMzDk2aJTcfmZvNV17W1S7W5nzLDBWySr5CQESj2fHoEc"/>
+            <div class="absolute bottom-0 p-8 z-20">
+              <span class="font-label text-[10px] uppercase tracking-widest text-tertiary-fixed">Pillar 04</span>
+              <h4 class="font-headline text-2xl text-white italic mt-2">Extra-curricular</h4>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary w-full py-12 px-8 text-sm text-white">
+    <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 w-full">
+      <div class="md:col-span-1">
+        <div class="font-headline italic text-xl text-white mb-6">LLC@FRCRCE</div>
+        <p class="text-on-surface-variant max-w-xs mb-6">Advancing the frontiers of human potential through curated institutional learning.</p>
+        <p class="text-outline text-xs">© 2024 LLC@FRCRCE. All rights reserved.</p>
+      </div>
+      <div class="md:col-span-1">
+        <h5 class="font-label text-xs uppercase tracking-widest text-tertiary-fixed mb-6">Quick Links</h5>
+        <ul class="space-y-4 list-none p-0">
+          <li><a class="text-on-surface-variant hover:text-white transition-all" href="/about">About</a></li>
+          <li><a class="text-on-surface-variant hover:text-white transition-all" href="/search">Browse Courses</a></li>
+          <li><a class="text-on-surface-variant hover:text-white transition-all" href="/login">Login</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-1">
+        <h5 class="font-label text-xs uppercase tracking-widest text-tertiary-fixed mb-6">Contact</h5>
+        <ul class="space-y-4 list-none p-0">
+          <li><a class="text-on-surface-variant hover:text-white transition-all" href="/contact">Contact Us</a></li>
+          <li><span class="text-on-surface-variant">Fr. Conceicao Rodrigues College of Engineering</span></li>
+          <li><span class="text-on-surface-variant">Bandra (W), Mumbai</span></li>
+        </ul>
+      </div>
+      <div class="md:col-span-1">
+        <h5 class="font-label text-xs uppercase tracking-widest text-tertiary-fixed mb-6">Stay Updated</h5>
+        <p class="text-on-surface-variant mb-4">Get updates on new courses and events.</p>
+        <a href="/registration" class="bg-tertiary-fixed text-on-tertiary-fixed px-6 py-2 rounded-lg font-medium hover:bg-surface-container-lowest transition-colors inline-block no-underline">
+          Register Now
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="/js/script.js"></script>
+
+  </body>
+</html>

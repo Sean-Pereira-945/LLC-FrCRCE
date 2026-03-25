@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Register | LLC@FRCRCE</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-container":"#828eb1","surface-container-lowest":"#ffffff",
+            "primary-container":"#1a2744","on-tertiary-container":"#d07900",
+            "primary-fixed-dim":"#b9c6eb","secondary-container":"#d6e3fa",
+            "surface-container":"#edeef1","on-surface-variant":"#45464d",
+            "error-container":"#ffdad6","background":"#f8f9fc",
+            "surface-variant":"#e1e2e5","surface-container-highest":"#e1e2e5",
+            "tertiary":"#210e00","on-surface":"#191c1e",
+            "on-secondary-container":"#586578","on-error-container":"#93000a",
+            "inverse-surface":"#2e3133","inverse-primary":"#b9c6eb",
+            "primary-fixed":"#d9e2ff","on-secondary":"#ffffff",
+            "on-error":"#ffffff","surface-container-low":"#f2f3f6",
+            "secondary-fixed-dim":"#bac7dd","secondary":"#525f72",
+            "on-secondary-fixed-variant":"#3b485a",
+            "surface":"#f8f9fc","outline-variant":"#c5c6ce",
+            "outline":"#75777e","surface-container-high":"#e7e8eb",
+            "surface-dim":"#d9dadd","on-primary-fixed":"#0d1b37",
+            "on-tertiary-fixed-variant":"#6a3b00","tertiary-fixed":"#ffdcbf",
+            "on-tertiary-fixed":"#2d1600","secondary-fixed":"#d6e3fa",
+            "surface-bright":"#f8f9fc","on-secondary-fixed":"#0f1c2c",
+            "primary":"#04122e","on-primary":"#ffffff",
+            "inverse-on-surface":"#f0f1f4","tertiary-container":"#3e2000",
+            "error":"#ba1a1a","tertiary-fixed-dim":"#ffb873",
+            "surface-tint":"#515e7e","on-primary-fixed-variant":"#3a4665",
+            "on-background":"#191c1e","on-tertiary":"#ffffff"
+          },
+          fontFamily: {
+            "headline":["Instrument Serif","serif"],
+            "body":["Geist","sans-serif"],
+            "label":["IBM Plex Mono","monospace"]
+          },
+          borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body class="bg-surface text-on-background font-body selection:bg-tertiary-fixed selection:text-on-tertiary-fixed" data-page="register">
+
+    <!-- TopNavBar -->
+  <nav class="navbar fixed top-0 w-full h-[64px] z-50 bg-surface-container-lowest/80 backdrop-blur-md flex justify-between items-center px-8 border-b border-surface-variant" id="mainNav">
+    <a href="/" class="font-headline italic text-2xl text-primary no-underline">LLC@FRCRCE</a>
+
+    <button class="md:hidden flex flex-col gap-1.5 p-2" id="navToggle" aria-label="Toggle menu">
+      <span class="block w-5 h-0.5 bg-primary rounded-full"></span>
+      <span class="block w-5 h-0.5 bg-primary rounded-full"></span>
+      <span class="block w-5 h-0.5 bg-primary rounded-full"></span>
+    </button>
+
+    <div class="hidden md:flex items-center gap-8" id="navLinks">
+      <a class="nav-link font-medium transition-colors duration-300" href="/search">Programs</a>
+      <a class="nav-link font-medium transition-colors duration-300" href="/about">About</a>
+      <a class="nav-link font-medium transition-colors duration-300" href="/contact">Contact</a>
+    </div>
+
+    <div class="hidden md:flex items-center gap-6">
+
+      <a href="/login" class="text-secondary font-medium hover:text-primary transition-colors duration-300">Login</a>
+      <a href="/registration" class="bg-primary text-on-primary px-5 py-2 rounded-lg font-medium hover:bg-tertiary-fixed hover:text-on-tertiary-fixed transition-all active:scale-95 no-underline">Join Now</a>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="nav-links-mobile md:hidden" id="navLinksMobile">
+
+      <a class="nav-link font-medium py-2" href="/search">Programs</a>
+      <a class="nav-link font-medium py-2" href="/about">About</a>
+      <a class="nav-link font-medium py-2" href="/contact">Contact</a>
+      <a class="text-secondary font-medium py-2" href="/login">Login</a>
+      <a href="/registration" class="bg-primary text-on-primary px-6 py-2 rounded-lg font-medium text-center mt-2 no-underline">Join Now</a>
+    </div>
+  </nav>
+
+  <main class="pt-16 min-h-screen grid grid-cols-1 md:grid-cols-[40%_60%]">
+    <!-- Brand Panel -->
+    <section class="bg-primary text-white p-12 md:p-16 flex flex-col justify-between min-h-[300px] md:min-h-0">
+      <div>
+        <h1 class="font-headline text-4xl md:text-5xl italic leading-tight">Create your account.</h1>
+        <p class="mt-6 text-white/70 max-w-sm leading-relaxed">Start as student or teacher and access a dashboard designed for your goals.</p>
+      </div>
+      <ul class="list-none p-0 space-y-4 mt-12 text-on-surface-variant text-sm">
+        <li class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-tertiary-fixed text-lg">person_add</span>
+          Role-based onboarding
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-tertiary-fixed text-lg">check_circle</span>
+          Inline validation support
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-tertiary-fixed text-lg">rocket_launch</span>
+          Fast account setup
+        </li>
+      </ul>
+    </section>
+
+    <!-- Register Form -->
+    <section class="bg-surface-container-low p-12 md:p-16 flex items-center justify-center">
+      <div class="w-full max-w-md bg-surface-container-lowest rounded-2xl editorial-shadow p-10">
+        <h2 class="font-headline text-3xl text-primary italic mb-2">Register</h2>
+        <p class="text-secondary mb-6">Pick your role and fill in your details.</p>
+
+        <div class="grid grid-cols-2 gap-3 mb-6" role="group" aria-label="Select account role">
+          <button type="button" class="h-11 rounded-full border border-primary bg-primary-fixed text-primary font-medium text-sm transition-all" id="registerRoleStudent">I'm a Student</button>
+          <button type="button" class="h-11 rounded-full border border-outline-variant bg-surface-container-lowest text-secondary font-medium text-sm transition-all hover:border-primary" id="registerRoleTeacher">I'm a Teacher</button>
+        </div>
+
+        <form id="registerForm" novalidate class="space-y-5">
+          <input type="hidden" id="registerUserType" value="student">
+
+          <div>
+            <label class="font-label text-[11px] uppercase tracking-widest text-secondary mb-2 block" for="registerName">Full Name</label>
+            <input class="form-input-themed w-full h-11 px-4 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface text-sm transition-all" id="registerName" type="text" required>
+            <p class="form-error mt-1" data-feedback-for="registerName"></p>
+          </div>
+
+          <div>
+            <label class="font-label text-[11px] uppercase tracking-widest text-secondary mb-2 block" for="registerEmail">Email</label>
+            <input class="form-input-themed w-full h-11 px-4 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface text-sm transition-all" id="registerEmail" type="email" required>
+            <p class="form-error mt-1" data-feedback-for="registerEmail"></p>
+          </div>
+
+          <div>
+            <label class="font-label text-[11px] uppercase tracking-widest text-secondary mb-2 block" for="registerPassword">Password</label>
+            <input class="form-input-themed w-full h-11 px-4 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface text-sm transition-all" id="registerPassword" type="password" required>
+            <p class="form-error mt-1" data-feedback-for="registerPassword"></p>
+          </div>
+
+          <p class="form-error" id="registerFormError"></p>
+
+          <button class="w-full h-12 bg-primary text-on-primary rounded-lg font-medium hover:bg-primary-container transition-all active:scale-[0.98]" type="submit">Create Account</button>
+        </form>
+
+        <p class="mt-6 text-secondary text-sm text-center">
+          Already registered? <a href="/login" class="text-primary font-semibold hover:text-on-tertiary-container transition-colors">Login here</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/script.js"></script>
+
+  </body>
+</html>

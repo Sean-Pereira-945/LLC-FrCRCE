@@ -1,0 +1,62 @@
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+  "on-primary-container": "var(--color-on-primary-container)",
+  "surface-container-lowest": "var(--color-surface-container-lowest)",
+  "primary-container": "var(--color-primary-container)",
+  "on-tertiary-container": "var(--color-on-tertiary-container)",
+  "primary-fixed-dim": "var(--color-primary-fixed-dim)",
+  "secondary-container": "var(--color-secondary-container)",
+  "surface-container": "var(--color-surface-container)",
+  "on-surface-variant": "var(--color-on-surface-variant)",
+  "error-container": "var(--color-error-container)",
+  "background": "var(--color-background)",
+  "surface-variant": "var(--color-surface-variant)",
+  "surface-container-highest": "var(--color-surface-container-highest)",
+  "tertiary": "var(--color-tertiary)",
+  "on-surface": "var(--color-on-surface)",
+  "on-secondary-container": "var(--color-on-secondary-container)",
+  "on-error-container": "var(--color-on-error-container)",
+  "inverse-surface": "var(--color-inverse-surface)",
+  "inverse-primary": "var(--color-inverse-primary)",
+  "primary-fixed": "var(--color-primary-fixed)",
+  "on-secondary": "var(--color-on-secondary)",
+  "on-error": "var(--color-on-error)",
+  "surface-container-low": "var(--color-surface-container-low)",
+  "secondary-fixed-dim": "var(--color-secondary-fixed-dim)",
+  "secondary": "var(--color-secondary)",
+  "on-secondary-fixed-variant": "var(--color-on-secondary-fixed-variant)",
+  "surface": "var(--color-surface)",
+  "outline-variant": "var(--color-outline-variant)",
+  "outline": "var(--color-outline)",
+  "surface-container-high": "var(--color-surface-container-high)",
+  "surface-dim": "var(--color-surface-dim)",
+  "on-primary-fixed": "var(--color-on-primary-fixed)",
+  "on-tertiary-fixed-variant": "var(--color-on-tertiary-fixed-variant)",
+  "tertiary-fixed": "var(--color-tertiary-fixed)",
+  "on-tertiary-fixed": "var(--color-on-tertiary-fixed)",
+  "secondary-fixed": "var(--color-secondary-fixed)",
+  "surface-bright": "var(--color-surface-bright)",
+  "on-secondary-fixed": "var(--color-on-secondary-fixed)",
+  "primary": "var(--color-primary)",
+  "on-primary": "var(--color-on-primary)",
+  "inverse-on-surface": "var(--color-inverse-on-surface)",
+  "tertiary-container": "var(--color-tertiary-container)",
+  "error": "var(--color-error)",
+  "tertiary-fixed-dim": "var(--color-tertiary-fixed-dim)",
+  "surface-tint": "var(--color-surface-tint)",
+  "on-primary-fixed-variant": "var(--color-on-primary-fixed-variant)",
+  "on-background": "var(--color-on-background)",
+  "on-tertiary": "var(--color-on-tertiary)"
+},
+      fontFamily: {
+        "headline":["Instrument Serif","serif"],
+        "body":["Geist","sans-serif"],
+        "label":["IBM Plex Mono","monospace"]
+      },
+      borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"}
+    }
+  }
+};

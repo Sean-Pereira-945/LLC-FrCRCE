@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# Build/Dist
+.dist/
+dist/
+build/
+
+# Uploads
+uploads/courses/*
+uploads/syllabus/*
+!uploads/courses/.gitignore
+!uploads/syllabus/.gitignore
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db

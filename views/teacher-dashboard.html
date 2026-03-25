@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Teacher Dashboard | LLC@FRCRCE</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-container":"#828eb1","surface-container-lowest":"#ffffff",
+            "primary-container":"#1a2744","on-tertiary-container":"#d07900",
+            "primary-fixed-dim":"#b9c6eb","secondary-container":"#d6e3fa",
+            "surface-container":"#edeef1","on-surface-variant":"#45464d",
+            "error-container":"#ffdad6","background":"#f8f9fc",
+            "surface-variant":"#e1e2e5","surface-container-highest":"#e1e2e5",
+            "tertiary":"#210e00","on-surface":"#191c1e",
+            "on-secondary-container":"#586578","on-error-container":"#93000a",
+            "inverse-surface":"#2e3133","inverse-primary":"#b9c6eb",
+            "primary-fixed":"#d9e2ff","on-secondary":"#ffffff",
+            "on-error":"#ffffff","surface-container-low":"#f2f3f6",
+            "secondary-fixed-dim":"#bac7dd","secondary":"#525f72",
+            "on-secondary-fixed-variant":"#3b485a",
+            "surface":"#f8f9fc","outline-variant":"#c5c6ce",
+            "outline":"#75777e","surface-container-high":"#e7e8eb",
+            "surface-dim":"#d9dadd","on-primary-fixed":"#0d1b37",
+            "on-tertiary-fixed-variant":"#6a3b00","tertiary-fixed":"#ffdcbf",
+            "on-tertiary-fixed":"#2d1600","secondary-fixed":"#d6e3fa",
+            "surface-bright":"#f8f9fc","on-secondary-fixed":"#0f1c2c",
+            "primary":"#04122e","on-primary":"#ffffff",
+            "inverse-on-surface":"#f0f1f4","tertiary-container":"#3e2000",
+            "error":"#ba1a1a","tertiary-fixed-dim":"#ffb873",
+            "surface-tint":"#515e7e","on-primary-fixed-variant":"#3a4665",
+            "on-background":"#191c1e","on-tertiary":"#ffffff"
+          },
+          fontFamily: {
+            "headline":["Instrument Serif","serif"],
+            "body":["Geist","sans-serif"],
+            "label":["IBM Plex Mono","monospace"]
+          },
+          borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body class="bg-surface text-on-background font-body selection:bg-tertiary-fixed selection:text-on-tertiary-fixed" data-page="teacher-dashboard">
+
+  <div class="grid grid-cols-1 md:grid-cols-[240px_1fr] min-h-screen">
+    <!-- Sidebar -->
+    <aside class="sidebar-mobile fixed md:sticky inset-y-0 left-0 w-[240px] bg-primary text-white p-6 flex flex-col gap-6 md:transform-none z-[501]" id="sidebar">
+      <div class="space-y-3">
+        <div class="w-12 h-12 rounded-full bg-tertiary-fixed text-primary font-bold flex items-center justify-center text-lg" id="teacherAvatar">T</div>
+        <h2 class="font-headline text-xl italic" id="teacherName">Teacher</h2>
+        <span class="inline-block font-label text-[10px] uppercase tracking-widest px-3 py-1 bg-white/10 text-on-primary-container rounded-full">Teacher</span>
+      </div>
+
+      <nav class="flex-1 space-y-1">
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/10 text-white font-medium text-sm border-l-2 border-tertiary-fixed" href="/teacher-dashboard">
+          <span class="material-symbols-outlined text-lg">dashboard</span> Dashboard
+        </a>
+      </nav>
+
+      <button class="w-full h-10 border border-white/20 text-white rounded-lg text-sm font-medium hover:bg-white/10 transition-colors" id="logoutBtn">Logout</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main-area md:ml-0 p-6 md:p-8">
+      <!-- Top Bar -->
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+        <h1 class="font-headline text-3xl md:text-4xl text-primary italic">Teacher Dashboard</h1>
+        <div class="flex items-center gap-3">
+
+      <button class="md:hidden border border-outline-variant text-secondary px-4 py-2.5 rounded-lg font-medium text-sm" id="sidebarToggle">
+            <span class="material-symbols-outlined text-lg">menu</span>
+          </button>
+          <button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-medium text-sm hover:bg-primary-container transition-all active:scale-95 flex items-center gap-2" id="openCreatePanel">
+            <span class="material-symbols-outlined text-lg">add</span> Create New Course
+          </button>
+        </div>
+      </div>
+
+      <!-- Summary Cards -->
+      <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+        <article class="bg-surface-container-lowest rounded-2xl editorial-shadow p-6">
+          <p class="font-label text-[11px] uppercase tracking-widest text-secondary">Total Courses</p>
+          <h2 class="font-headline text-4xl text-primary italic mt-2" id="totalCourses">0</h2>
+        </article>
+        <article class="bg-surface-container-lowest rounded-2xl editorial-shadow p-6">
+          <p class="font-label text-[11px] uppercase tracking-widest text-secondary">Total Students Enrolled</p>
+          <h2 class="font-headline text-4xl text-on-tertiary-container italic mt-2" id="totalStudents">0</h2>
+        </article>
+        <article class="bg-surface-container-lowest rounded-2xl editorial-shadow p-6">
+          <p class="font-label text-[11px] uppercase tracking-widest text-secondary">Courses at Capacity</p>
+          <h2 class="font-headline text-4xl text-on-tertiary-container italic mt-2" id="fullCourses">0</h2>
+        </article>
+      </section>
+
+      
+      <!-- Enrollment Requests -->
+      <section class="bg-surface-container-lowest rounded-2xl editorial-shadow p-6 mb-8" id="requestsSection" style="display: none;">
+        <h2 class="font-headline text-2xl text-primary italic mb-6 flex items-center gap-2">
+          Pending Enrollments <span class="bg-error text-on-error min-w-[24px] h-6 px-1.5 flex items-center justify-center rounded-full text-xs font-bold font-body not-italic" id="requestCountBadge">0</span>
+        </h2>
+        <div class="overflow-x-auto">
+          <table class="w-full" aria-label="Pending enrollments table">
+            <thead>
+              <tr class="border-b border-surface-variant">
+                <th class="text-left py-3 px-4 font-label text-[11px] uppercase tracking-widest text-outline">Student</th>
+                <th class="text-left py-3 px-4 font-label text-[11px] uppercase tracking-widest text-outline">Course</th>
+                <th class="text-left py-3 px-4 font-label text-[11px] uppercase tracking-widest text-outline">Requested At</th>
+                <th class="text-left py-3 px-4 font-label text-[11px] uppercase tracking-widest text-outline">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="pendingRequestsTable">
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Courses Table -->
+      <section class="bg-surface-container-lowest rounded-2xl editorial-shadow p-6">
+        <h2 class="font-headline text-2xl text-primary italic mb-6">My Courses</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full" aria-label="Teacher courses table">
+            <thead>
+              <tr class="border-b border-surface-variant">
+                <th class="text-left py-5 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-secondary/70 border-b border-surface-variant font-bold">Course Name</th>
+                <th class="text-left py-5 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-secondary/70 border-b border-surface-variant font-bold">Category</th>
+                <th class="text-left py-5 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-secondary/70 border-b border-surface-variant font-bold">Enrolled / Capacity</th>
+                <th class="text-left py-5 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-secondary/70 border-b border-surface-variant font-bold">Schedule</th>
+                <th class="text-left py-5 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-secondary/70 border-b border-surface-variant font-bold">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="teacherCoursesTable">
+              <tr><td colspan="5" class="py-8 text-center text-secondary">Loading courses...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Course Create/Edit Side Panel -->
+  <aside class="side-panel" id="coursePanel" aria-label="Course panel">
+    <div class="p-8">
+      <div class="flex justify-between items-center mb-8">
+        <h2 id="coursePanelTitle" class="font-headline text-2xl text-primary italic">Create New Course</h2>
+        <button class="text-secondary hover:text-primary transition-colors" id="closeCoursePanel" type="button">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <form id="courseForm" enctype="multipart/form-data" class="space-y-5">
+        <input type="hidden" id="courseId" name="courseId">
+
+        <div>
+          <label class="font-label text-[11px] uppercase tracking-widest text-secondary mb-2 block" for="courseName">Course Name</label>
+          <input class="form-input-themed w-full h-11 px-4 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface text-sm" id="courseName" name="courseName" required>
+        </div>
+
+        <div>
+          <label class="font-label text-[11px] uppercase tracking-widest text-secondary mb-2 block" for="courseDescription">Description</label>
+          <textarea class="form-input-themed w-full min-h-[100px] px-4 py-3 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface text-sm resize-y" id="courseDescription" name="description" required></textarea>
+        </div>
+
+        <div>
+          <label class="font-label text-[11px] uppercase tracking-widest text-secondary mb-2 block" for="courseSchedule">Schedule</label>
+          <input class="form-input-themed w-full h-11 px-4 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface text-sm" id="courseSchedule" name="schedule" placeholder="Mon/Wed 3-5pm" required>
+        </div>
+
+        <div>
+          <label class="font-label text-[11px] uppercase tracking-widest text-secondary mb-2 block" for="courseCapacity">Capacity</label>
+          <input class="form-input-themed w-full h-11 px-4 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface text-sm" id="courseCapacity" name="capacity" type="number" min="1" max="500" required>
+        </div>
+
+        <div>
+          <label class="font-label text-[11px] uppercase tracking-widest text-secondary mb-2 block" for="courseCategory">Category</label>
+          <select class="form-input-themed w-full h-11 px-3 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface text-sm" id="courseCategory" name="category" required>
+            <option value="Technical">Technical</option>
+            <option value="Non-technical">Non-technical</option>
+            <option value="Self-Development">Self-Development</option>
+            <option value="Extra-curricular">Extra-curricular</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="font-label text-[11px] uppercase tracking-widest text-secondary mb-2 block" for="courseLogo">Course Logo (Optional)</label>
+          <input class="w-full text-sm text-secondary file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border file:border-outline-variant file:text-sm file:font-medium file:bg-surface file:text-primary hover:file:bg-surface-container-low" id="courseLogo" name="logo" type="file" accept="image/*">
+        </div>
+
+        <div id="logoPreview"></div>
+
+        <div>
+          <label class="font-label text-[11px] uppercase tracking-widest text-secondary mb-2 block" for="courseLogoUrl">Logo URL (Optional)</label>
+          <input class="form-input-themed w-full h-11 px-4 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface text-sm" id="courseLogoUrl" name="logoUrl" type="url">
+        </div>
+
+        <div>
+          <label class="font-label text-[11px] uppercase tracking-widest text-secondary mb-2 block" for="courseSyllabus">Syllabus Image</label>
+          <input class="w-full text-sm text-secondary file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border file:border-outline-variant file:text-sm file:font-medium file:bg-surface file:text-primary hover:file:bg-surface-container-low" id="courseSyllabus" name="syllabus" type="file" accept="image/*" required>
+        </div>
+
+        <button class="w-full h-12 bg-primary text-on-primary rounded-lg font-medium hover:bg-primary-container transition-all active:scale-[0.98] mt-4" type="submit">Save Course</button>
+      </form>
+    </div>
+  </aside>
+
+  <!-- Syllabus Modal -->
+  <div class="modal-overlay" id="syllabusModal" aria-hidden="true">
+    <div class="bg-surface-container-lowest rounded-2xl editorial-shadow w-full max-w-xl max-h-[90vh] overflow-auto" role="dialog" aria-modal="true" aria-labelledby="syllabusTitle">
+      <div class="flex items-center justify-between p-6 border-b border-surface-variant">
+        <h3 id="syllabusTitle" class="font-headline text-xl text-primary italic">Course Syllabus</h3>
+        <button class="text-secondary hover:text-primary transition-colors" type="button" data-close-modal="syllabusModal" aria-label="Close">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="p-6">
+        <img id="syllabusImage" alt="Course syllabus" style="width:100%;height:auto;border-radius:8px;">
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/script.js"></script>
+
+  </body>
+</html>
