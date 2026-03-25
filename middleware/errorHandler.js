@@ -58,6 +58,16 @@ const errorHandler = (err, req, res, next) => {
     error = handleJWTError();
   }
 
+  // Handle Multer Errors
+  if (error.name === 'MulterError') {
+    if (error.code === 'LIMIT_FILE_SIZE') {
+      error = new AppError('File is too large. Maximum size is 5MB.', 400);
+    } else {
+      error = new AppError(error.message, 400);
+    }
+  }
+
+
   if (process.env.NODE_ENV === 'production') {
     sendErrorProd(error, res);
   } else {
