@@ -7,17 +7,15 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/uploads/(.*)",
-      "dest": "https://res.cloudinary.com/djwygkmsh/image/upload/v1/$1"
+      "source": "/uploads/(.*)",
+      "destination": "https://res.cloudinary.com/djwygkmsh/image/upload/v1/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "server.js"
+      "source": "/(.*)",
+      "destination": "/server.js"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
+

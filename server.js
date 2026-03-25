@@ -878,30 +878,37 @@ app.use(errorHandler);
 
 const DEFAULT_PORT = Number(process.env.PORT) || 5000;
 
-const startServer = async (port) => {
-  try {
-    await migrate();
-    console.log('Neon PostgreSQL connected');
-  } catch (err) {
-    console.error('Failed to connect to database:', err.message);
-    process.exit(1);
-  }
+// ── Start server (Only if not imported by Vercel) ──
 
-  const server = app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
-  });
+const DEFAULT_PORT = Number(process.env.PORT) || 5000;
 
-  server.on('error', (error) => {
-    if (error.code === 'EADDRINUSE') {
-      const nextPort = port + 1;
-      console.warn(`Port ${port} is in use. Retrying on http://localhost:${nextPort}`);
-      startServer(nextPort);
-      return;
+if (require.main === module) {
+  const startServer = async (port) => {
+    try {
+      await migrate();
+      console.log('Neon PostgreSQL connected');
+    } catch (err) {
+      console.error('Failed to connect to database:', err.message);
+      process.exit(1);
     }
 
-    console.error('Server failed to start:', error);
-    process.exit(1);
-  });
-};
+    const server = app.listen(port, () => {
+      console.log(`Server running on http://localhost:${port}`);
+    });
 
-startServer(DEFAULT_PORT);
+    server.on('error', (error) => {
+      if (error.code === 'EADDRINUSE') {
+        const nextPort = port + 1;
+        console.warn(`Port ${port} is in use. Retrying on http://localhost:${nextPort}`);
+        startServer(nextPort);
+        return;
+      }
+      console.error('Server failed to start:', error);
+      process.exit(1);
+    });
+  };
+
+  startServer(DEFAULT_PORT);
+}
+
+module.exports = app;
