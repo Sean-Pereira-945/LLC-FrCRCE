@@ -542,6 +542,7 @@ function initStudentDashboard() {
       myCoursesNode.innerHTML = '<p class="course-card-meta">You have not enrolled in any course yet.</p>';
     } else {
       myCoursesNode.innerHTML = enrolled.map((course) => {
+        console.debug('Rendering Enrolled Course:', { id: course._id, name: course.name, logo: course.logo });
         const current = (course.students || []).length;
         const fill = Math.min(100, Math.round((current / course.capacity) * 100));
         return `
@@ -567,6 +568,7 @@ function initStudentDashboard() {
       discoverNode.innerHTML = '<p class="course-card-meta">No courses found for this category.</p>';
     } else {
       discoverNode.innerHTML = filteredDiscover.map((course) => {
+        console.debug('Rendering Discover Course:', { id: course._id, name: course.name, logo: course.logo });
         const current = (course.students || []).length;
         const full = current >= course.capacity;
         const myEnrollment = myEnrollments.find((e) => String(e.course_id) === String(course._id));
