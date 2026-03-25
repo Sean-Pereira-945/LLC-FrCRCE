@@ -835,8 +835,14 @@ function initTeacherDashboard() {
         
         const logoUrlInput = document.getElementById('courseLogoUrl');
         if (logoUrlInput) {
-          logoUrlInput.value = course.logo && !course.logo.startsWith('/uploads/') ? course.logo : '';
+          logoUrlInput.value = course.logo && !course.logo.startsWith('/uploads/') && !course.logo.includes('cloudinary') ? course.logo : '';
         }
+
+        const syllabusUrlInput = document.getElementById('courseSyllabusUrl');
+        if (syllabusUrlInput) {
+          syllabusUrlInput.value = course.syllabusPath && !course.syllabusPath.startsWith('/uploads/') && !course.syllabusPath.includes('cloudinary') ? course.syllabusPath : '';
+        }
+
 
         if (panelTitle) panelTitle.textContent = 'Edit Course';
         panel.classList.add('open');

@@ -410,16 +410,18 @@ app.post(
   verifyUploadedImages,
   validate(createCourseSchema),
   catchAsync(async (req, res, next) => {
-    const { courseName, description, schedule, capacity, category, logoUrl } = req.body;
+    const { courseName, description, schedule, capacity, category, logoUrl, syllabusUrl } = req.body;
+    
     const syllabusPath = req.files && req.files.syllabus
       ? req.files.syllabus[0].path
-      : null;
+      : (syllabusUrl || null);
+      
     const logoPath = req.files && req.files.logo
       ? req.files.logo[0].path
       : (logoUrl || '');
 
     if (!syllabusPath) {
-      return next(new AppError('Syllabus image is required', 400));
+      return next(new AppError('Syllabus (image or URL) is required', 400));
     }
 
     await pool.query(
@@ -562,12 +564,13 @@ app.put(
     }
 
     const course = existing.rows[0];
-    const { courseName, description, schedule, capacity, category, logoUrl } = req.body;
+    const { courseName, description, schedule, capacity, category, logoUrl, syllabusUrl } = req.body;
 
     let newSyllabusPath = course.syllabus_path;
     if (req.files && req.files.syllabus) {
-      // In a real app, you might want to delete the old one from Cloudinary here
       newSyllabusPath = req.files.syllabus[0].path;
+    } else if (syllabusUrl) {
+      newSyllabusPath = syllabusUrl;
     }
 
     let newLogo = course.logo;

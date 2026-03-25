@@ -205,9 +205,15 @@
         </div>
 
         <div>
-          <label class="font-label text-[11px] uppercase tracking-widest text-secondary mb-2 block" for="courseSyllabus">Syllabus Image</label>
-          <input class="w-full text-sm text-secondary file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border file:border-outline-variant file:text-sm file:font-medium file:bg-surface file:text-primary hover:file:bg-surface-container-low" id="courseSyllabus" name="syllabus" type="file" accept="image/*" required>
+          <label class="font-label text-[11px] uppercase tracking-widest text-secondary mb-2 block" for="courseSyllabus">Syllabus Image (Optional if URL provided)</label>
+          <input class="w-full text-sm text-secondary file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border file:border-outline-variant file:text-sm file:font-medium file:bg-surface file:text-primary hover:file:bg-surface-container-low" id="courseSyllabus" name="syllabus" type="file" accept="image/*">
         </div>
+
+        <div>
+          <label class="font-label text-[11px] uppercase tracking-widest text-secondary mb-2 block" for="courseSyllabusUrl">Syllabus URL (Optional)</label>
+          <input class="form-input-themed w-full h-11 px-4 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface text-sm" id="courseSyllabusUrl" name="syllabusUrl" type="url">
+        </div>
+
 
         <button class="w-full h-12 bg-primary text-on-primary rounded-lg font-medium hover:bg-primary-container transition-all active:scale-[0.98] mt-4" type="submit">Save Course</button>
       </form>
