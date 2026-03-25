@@ -108,8 +108,15 @@ const localOriginPattern = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i;
 const isOriginAllowed = (origin) => {
   if (!origin) return true;
   if (localOriginPattern.test(origin)) return true;
-  if (allowedOrigins.length === 0) return true;
-  return allowedOrigins.includes(origin);
+  if (allowedOrigins.length === 0 || allowedOrigins.includes('*')) return true;
+  
+  // Explicitly check for allowed origins
+  if (allowedOrigins.includes(origin)) return true;
+  
+  // Automatically allow any Vercel domain for convenience
+  if (origin.endsWith('.vercel.app')) return true;
+
+  return false;
 };
 
 // ── Rate limiters ──
