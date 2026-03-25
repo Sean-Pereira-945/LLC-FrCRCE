@@ -155,7 +155,7 @@ app.use(
         scriptSrc: ["'self'", "'unsafe-inline'", "https://cdn.tailwindcss.com"],
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
-        imgSrc: ["'self'", "data:", "blob:", "https://lh3.googleusercontent.com", "https://res.cloudinary.com"],
+        imgSrc: ["'self'", "data:", "blob:", "https://*", "http://*"],
         connectSrc: ["'self'"],
         objectSrc: ["'none'"],
         frameSrc: ["'none'"],

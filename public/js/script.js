@@ -1125,6 +1125,7 @@ function initSearchPage() {
       const full = course.capacity ? seats >= course.capacity : false;
       return `
         <article class="card course-card card-hover" style="margin-bottom:16px;">
+          <div class="course-card-media">${course.logo ? `<img src="${course.logo}" alt="${course.name} logo" style="width:100%;height:100%;object-fit:cover;">` : '<span style="color:var(--text-secondary)">Course</span>'}</div>
           <div class="course-card-content">
             <span class="badge ${badgeClass(course.category || 'Technical')}">${course.category || 'General'}</span>
             <h3 class="course-card-title">${course.name}</h3>
@@ -1137,6 +1138,7 @@ function initSearchPage() {
           </div>
         </article>
       `;
+
     }).join('');
 
     resultNode.querySelectorAll('[data-search-enroll]').forEach((button) => {
