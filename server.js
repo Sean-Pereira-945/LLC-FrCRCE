@@ -1,3 +1,5 @@
+console.log('API_BOOT: Loading server.js...');
+
 require('dotenv').config();
 
 const express = require('express');
@@ -13,6 +15,8 @@ const hpp = require('hpp');
 const multer = require('multer');
 const { v4: uuidv4 } = require('uuid');
 
+console.log('API_BOOT: Core modules loaded.');
+
 const pool = require('./db/pool');
 const migrate = require('./db/migrate');
 const { protect, restrictTo } = require('./middleware/auth');
@@ -25,6 +29,8 @@ const catchAsync = require('./utils/catchAsync');
 
 const app = express();
 
+console.log('API_BOOT: Initializing Express app...');
+
 // ── Vercel / Proxy support ──
 app.set('trust proxy', 1);
 
@@ -32,21 +38,31 @@ app.set('trust proxy', 1);
 let migrationPromise = null;
 const ensureMigration = async () => {
   if (!migrationPromise) {
-    migrationPromise = migrate();
+    console.log('DB_INIT: Starting migration...');
+    migrationPromise = migrate().then(() => {
+      console.log('DB_INIT: Migration completed successfully.');
+    }).catch(err => {
+      console.error('DB_INIT_ERROR: Migration failed:', err.message);
+      migrationPromise = null; // Allow retry on next request
+      throw err;
+    });
   }
   return migrationPromise;
 };
 
 // ── Middleware to ensure DB is ready ──
 app.use(async (req, res, next) => {
+  // Skip migration for health check to avoid cascading failure
+  if (req.path === '/health') return next();
+  
   try {
     await ensureMigration();
     next();
   } catch (err) {
-    console.error('Migration failed during request:', err.message);
-    next(new AppError('Database initialization failed', 500));
+    res.status(500).json({ success: false, message: 'Database initialization failed. Please check server logs.' });
   }
 });
+
 
 const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
