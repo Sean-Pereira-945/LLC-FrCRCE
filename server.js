@@ -39,14 +39,8 @@ let migrationPromise = null;
 const ensureMigration = async () => {
   if (!migrationPromise) {
     console.log('DB_INIT: Starting migration...');
-    migrationPromise = migrate().then(async () => {
+    migrationPromise = migrate().then(() => {
       console.log('DB_INIT: Migration completed successfully.');
-      try {
-        await pool.query("DELETE FROM courses WHERE name = 'Culinary Arts'");
-        console.log('Admin: One-time deletion of Culinary Arts completed.');
-      } catch(e) {
-        console.warn('Admin: Deletion error (possibly already deleted):', e.message);
-      }
     }).catch(err => {
       console.error('DB_INIT_ERROR: Migration failed:', err.message);
       migrationPromise = null; // Allow retry on next request
