@@ -1,238 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LLCFRCRCE - Course Registration System</title>
+# 📖 LLCFRCRCE - Course Registration System
 
-  <!-- Font Awesome CDN for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-naukR7I+Nk6gp7tG+JcQP+jUfZY9HMTKm3y+JyaXu4gsftQvT/r2gicGwFV4LzFrULjX9wHlFaRJZXdTd8A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-v14+-green.svg)](https://nodejs.org/)
 
-  <!-- Google Fonts: Inter (body) and Poppins (headings) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+A professional course registration and management platform designed to streamline student course preferences and reduce administrative workload.
 
-  <style>
-    :root {
-      --primary-color: #1e3a8a;
-      --accent-color: #3b82f6;
-      --bg-color: #f9fafb;
-      --text-color: #111827;
-      --code-bg: #1e293b;
-      --code-color: #f8fafc;
-      --section-bg: #ffffff;
-      --border-radius: 12px;
-      --font-heading: 'Poppins', sans-serif;
-      --font-body: 'Inter', sans-serif;
-    }
+---
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+## 🚀 Project Overview
 
-    body {
-      font-family: var(--font-body);
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      padding: 2rem;
-    }
+**LLCFRCRCE** is a mini-project developed to facilitate an efficient and user-friendly process for course enrollment. This system enables students to browse available courses, view detailed syllabi and schedules, and enroll in their preferred courses—all within an intuitive interface.
 
-    h1, h2, h3 {
-      font-family: var(--font-heading);
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      color: var(--primary-color);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+Teachers are provided with tools to manage and update course information, ensuring accuracy and ease of administration. The primary objective is to **digitize the course registration workflow**, making it more transparent, manageable, and less error-prone than traditional manual or spreadsheet-based systems.
 
-    h1 {
-      font-size: 2.5rem;
-    }
+---
 
-    p {
-      margin-bottom: 1rem;
-    }
+## ✨ Key Features
 
-    pre {
-      background: var(--code-bg);
-      color: var(--code-color);
-      padding: 1rem;
-      border-radius: var(--border-radius);
-      overflow-x: auto;
-      font-family: monospace;
-    }
+- **✅ Student Interface:** Browse comprehensive course listings, access syllabus, schedule, and instructor info, and enroll seamlessly.
+- **✅ Teacher Interface:** Add/edit course details and manage enrolled student lists.
+- **✅ Administrative Benefits:** Automates preference collection, removes Excel dependency, and centralizes data for reporting.
 
-    code {
-      font-family: monospace;
-    }
+---
 
-    ul {
-      list-style-type: none;
-      padding-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
+## 🛠️ Installation Guide
 
-    ul li::before {
-      content: "✅";
-      margin-right: 10px;
-      color: var(--accent-color);
-    }
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Sean-Pereira-945/LLC-FRCRCE.git
+   ```
 
-    ol {
-      margin-bottom: 1rem;
-    }
+2. **Navigate to the project directory:**
+   ```bash
+   cd LLCFRCRCE
+   ```
 
-    .section {
-      max-width: 900px;
-      margin: auto;
-      background: var(--section-bg);
-      padding: 2rem;
-      border-radius: var(--border-radius);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-      margin-bottom: 2.5rem;
-      transition: transform 0.3s ease;
-    }
+3. **Install required dependencies:**
+   ```bash
+   npm install
+   ```
 
-    .section:hover {
-      transform: translateY(-5px);
-    }
+---
 
-    .footer {
-      text-align: center;
-      font-size: 0.9rem;
-      margin-top: 3rem;
-      color: #6b7280;
-    }
+## ⚙️ Usage Instructions
 
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
+Once installed, start the application using:
 
-    a:hover {
-      text-decoration: underline;
-    }
+```bash
+npm start
+```
 
-    .icon {
-      font-size: 1.2rem;
-      color: var(--accent-color);
-    }
+The server will launch, allowing access to the web interface via your browser at [http://localhost:3000](http://localhost:3000).
 
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      .section {
-        padding: 1.5rem;
-      }
-    }
-  </style>
-</head>
-<body>
+---
 
-  <!-- Project Title -->
-  <div class="section">
-    <h1><i class="fas fa-book-open icon"></i>LLCFRCRCE</h1>
-    <p><em>A professional course registration and management platform designed to streamline student course preferences and reduce administrative workload.</em></p>
-  </div>
+## 🤝 Contributing
 
-  <!-- Project Overview -->
-  <div class="section">
-    <h2><i class="fas fa-info-circle icon"></i>Project Overview</h2>
-    <p><strong>LLCFRCRCE</strong> is a mini-project developed to facilitate an efficient and user-friendly process for course enrollment. This system enables students to browse available courses, view detailed syllabi and schedules, and enroll in their preferred courses—all within an intuitive interface.</p>
-    <p>Teachers are also provided with tools to manage and update course information, ensuring accuracy and ease of administration. The primary objective of this project is to <strong>digitize the course registration workflow</strong>, making it more transparent, manageable, and less error-prone than traditional manual or spreadsheet-based systems.</p>
-  </div>
+We welcome contributions! To contribute:
 
-  <!-- Features -->
-  <div class="section">
-    <h2><i class="fas fa-list-check icon"></i>Key Features</h2>
-    <ul>
-      <li><strong>Student Interface:</strong> View comprehensive course listings, access syllabus, schedule, and instructor info, and enroll in preferred courses seamlessly.</li>
-      <li><strong>Teacher Interface:</strong> Add, edit course details, and manage enrolled student lists.</li>
-      <li><strong>Administrative Benefits:</strong> Automates preference collection, removes Excel dependency, and centralizes data for reporting and analysis.</li>
-    </ul>
-  </div>
+1. Fork the repository.
+2. Create a new feature branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -m "Add feature-name"`
+4. Push your branch: `git push origin feature-name`
+5. Open a Pull Request.
 
-  <!-- Installation -->
-  <div class="section">
-    <h2><i class="fas fa-download icon"></i>Installation Guide</h2>
-    <ol>
-      <li><strong>Clone the repository:</strong>
-        <pre><code>git clone https://github.com/Sean-Pereira-945/LLC-FRCRCE.git</code></pre>
-      </li>
-      <li><strong>Navigate to the project directory:</strong>
-        <pre><code>cd LLCFRCRCE</code></pre>
-      </li>
-      <li><strong>Install required dependencies:</strong>
-        <pre><code>npm install</code></pre>
-      </li>
-    </ol>
-  </div>
+---
 
-  <!-- Usage -->
-  <div class="section">
-    <h2><i class="fas fa-play icon"></i>Usage Instructions</h2>
-    <p>Once installed, start the application using the following command:</p>
-    <pre><code>npm start</code></pre>
-    <p>The server will launch, allowing access to the web interface via your browser at the default port (usually <a href="http://localhost:3000">http://localhost:3000</a>).</p>
-  </div>
+## 📜 License
 
-  <!-- Contributing -->
-  <div class="section">
-    <h2><i class="fas fa-handshake icon"></i>Contributing</h2>
-    <p>We welcome contributions from developers and educators alike. To contribute, please follow these guidelines:</p>
-    <ol>
-      <li>Fork the repository.</li>
-      <li>Create a new feature branch:
-        <pre><code>git checkout -b feature-name</code></pre>
-      </li>
-      <li>Commit your changes:
-        <pre><code>git commit -m "Add feature-name"</code></pre>
-      </li>
-      <li>Push your branch to the remote repository:
-        <pre><code>git push origin feature-name</code></pre>
-      </li>
-      <li>Open a Pull Request detailing the changes made.</li>
-    </ol>
-    <p>All submissions will be reviewed promptly.</p>
-  </div>
+This project is licensed under the **MIT License** — feel free to use, modify, and distribute it.
 
-  <!-- License -->
-  <div class="section">
-    <h2><i class="fas fa-copyright icon"></i>License</h2>
-    <p>This project is licensed under the <strong>MIT License</strong> — feel free to use, modify, and distribute it under the terms of the license.</p>
-  </div>
+---
 
-  <!-- Contact -->
-  <div class="section">
-    <h2><i class="fas fa-envelope icon"></i>Contact</h2>
-    <p>For any inquiries, feedback, or suggestions, please reach out via email:</p>
-    <p>📧 <a href="mailto:blazexander44@gmail.com">blazexander44@gmail.com</a></p>
-  </div>
+## 📧 Contact
 
-  <!-- Acknowledgments -->
-  <div class="section">
-    <h2><i class="fas fa-heart icon"></i>Acknowledgments</h2>
-    <p>We would like to extend our sincere gratitude to:</p>
-    <ul>
-      <li><strong>Prof. Roshni</strong> – For providing the opportunity to work on this valuable project and guiding us throughout its development.</li>
-    </ul>
-  </div>
+For inquiries, feedback, or suggestions:
+- 📩 Email: [blazexander44@gmail.com](mailto:blazexander44@gmail.com)
 
-  <!-- Footer -->
-  <div class="footer">
-    <p>Thank you for taking the time to explore <strong>LLCFRCRCE</strong>. We hope it proves beneficial for both students and faculty alike!</p>
-  </div>
+---
 
-</body>
-</html>
+## ❤️ Acknowledgments
+
+We extend our sincere gratitude to:
+- **Prof. Roshni** – For providing the opportunity to work on this project and guiding us throughout its development.
+
+---
+
+*Thank you for exploring **LLCFRCRCE**! We hope it proves beneficial for both students and faculty.*
