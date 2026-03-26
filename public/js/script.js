@@ -1169,7 +1169,7 @@ function initSearchPage() {
     });
 
     resultNode.querySelectorAll('[data-search-syllabus]').forEach((button) => {
-      button.addEventListener('click', async () => {
+      button.addEventListener('click', () => {
         if (!localStorage.getItem('token')) {
           showToast('Please login to view syllabus.', 'info');
           setTimeout(() => {
@@ -1177,17 +1177,40 @@ function initSearchPage() {
           }, 500);
           return;
         }
-        try {
-          const response = await fetch(`/api/courses/syllabus/${button.dataset.searchSyllabus}`, {
-            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-          });
-          if (!response.ok) throw new Error('Unable to load syllabus');
-          const blob = await response.blob();
-          const url = URL.createObjectURL(blob);
-          window.open(url, '_blank');
-        } catch (error) {
-          showToast(error.message, 'error');
+
+        const courseId = button.dataset.searchSyllabus;
+        const course = courses.find((c) => String(c._id) === String(courseId));
+        
+        if (!course || !course.syllabusPath) {
+          showToast('Syllabus not found for this course.', 'error');
+          return;
         }
+
+        const syllabusImage = document.getElementById('syllabusImage');
+        const syllabusTitle = document.getElementById('syllabusTitle');
+        const syllabusDownload = document.getElementById('syllabusDownload');
+        const syllabusStatus = document.getElementById('syllabusStatus');
+
+        if (syllabusImage) {
+          syllabusImage.src = course.syllabusPath;
+          syllabusImage.style.display = 'block';
+          syllabusImage.style.transform = 'scale(1)';
+        }
+        
+        if (syllabusTitle) {
+          syllabusTitle.textContent = course.name || 'Course Syllabus';
+        }
+
+        if (syllabusDownload) {
+          syllabusDownload.href = course.syllabusPath;
+          syllabusDownload.download = `${course.name || 'course'}-syllabus`;
+        }
+
+        if (syllabusStatus) {
+          syllabusStatus.style.display = 'none';
+        }
+
+        openModal('syllabusModal');
       });
     });
   };
@@ -1268,5 +1291,37 @@ function initSearchPage() {
   if (startQuery || startCategory || startHasCapacity || startSort !== 'newest') {
     search();
   }
+
+  // Syllabus Modal Controls for Search Page
+  let syllabusScale = 1;
+  const sImage = document.getElementById('syllabusImage');
+  const sZoomIn = document.getElementById('syllabusZoomIn');
+  const sZoomOut = document.getElementById('syllabusZoomOut');
+  const sReset = document.getElementById('syllabusReset');
+
+  if (sZoomIn && sImage) {
+    sZoomIn.addEventListener('click', () => {
+      syllabusScale = Math.min(2, syllabusScale + 0.1);
+      sImage.style.transform = `scale(${syllabusScale.toFixed(2)})`;
+    });
+  }
+
+  if (sZoomOut && sImage) {
+    sZoomOut.addEventListener('click', () => {
+      syllabusScale = Math.max(0.6, syllabusScale - 0.1);
+      sImage.style.transform = `scale(${syllabusScale.toFixed(2)})`;
+    });
+  }
+
+  if (sReset && sImage) {
+    sReset.addEventListener('click', () => {
+      syllabusScale = 1;
+      sImage.style.transform = 'scale(1)';
+    });
+  }
+
+  document.querySelectorAll('[data-close-modal]').forEach((button) => {
+    button.addEventListener('click', () => closeModal(button.dataset.closeModal));
+  });
 }
 

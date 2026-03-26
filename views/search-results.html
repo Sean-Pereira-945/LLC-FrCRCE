@@ -142,6 +142,36 @@
   </main>
 
   <script src="/js/script.js?v=1.1"></script>
+  
+  <!-- Syllabus Modal -->
+  <div class="modal-overlay" id="syllabusModal" aria-hidden="true">
+    <div class="bg-surface-container-lowest rounded-2xl editorial-shadow w-full max-w-xl max-h-[90vh] overflow-auto" role="dialog" aria-modal="true" aria-labelledby="syllabusTitle">
+      <div class="flex items-center justify-between p-6 border-b border-surface-variant">
+        <h3 id="syllabusTitle" class="font-headline text-xl text-primary italic">Course Syllabus</h3>
+        <button class="text-secondary hover:text-primary transition-colors" type="button" data-close-modal="syllabusModal" aria-label="Close">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="p-6">
+        <div class="flex gap-2 flex-wrap mb-4">
+          <button class="px-3 py-1.5 border border-outline-variant rounded-lg text-sm text-secondary hover:border-primary transition-all" id="syllabusZoomOut" type="button">
+            <span class="material-symbols-outlined text-lg">zoom_out</span>
+          </button>
+          <button class="px-3 py-1.5 border border-outline-variant rounded-lg text-sm text-secondary hover:border-primary transition-all" id="syllabusZoomIn" type="button">
+            <span class="material-symbols-outlined text-lg">zoom_in</span>
+          </button>
+          <button class="px-3 py-1.5 text-sm text-secondary hover:text-primary transition-colors" id="syllabusReset" type="button">Reset</button>
+          <a class="px-4 py-1.5 bg-primary text-on-primary rounded-lg text-sm font-medium hover:bg-primary-container transition-all ml-auto no-underline flex items-center gap-1" id="syllabusDownload" href="#" download>
+            <span class="material-symbols-outlined text-lg">download</span> Download
+          </a>
+        </div>
+        <p id="syllabusStatus" class="text-secondary text-sm mb-3" style="display:none;"></p>
+        <div class="syllabus-stage">
+          <img id="syllabusImage" alt="Course syllabus" style="width:100%;height:auto;border-radius:8px;transform-origin:top center;transition:transform 120ms ease;">
+        </div>
+      </div>
+    </div>
+  </div>
 
   </body>
 </html>
